@@ -6,6 +6,8 @@ RUN apt-get update -y && \
 
 WORKDIR /app
 
+COPY . .
+
 ## instalar bibliotecas que seram nescessarias para a execução e desenvolvimento do app
 RUN pip install Flask requests flask_mysqldb
 
