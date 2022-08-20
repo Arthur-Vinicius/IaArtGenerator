@@ -1,0 +1,5 @@
+FROM mysql:latest
+
+COPY Caminho do arquivo sql
+
+EXPOSE 3306

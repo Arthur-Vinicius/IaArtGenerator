@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  db:
+    build: ./pastaImagemDBmysql/
+    restart: always
+    env_file:
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - "caminho do arquivo sql"
+    networks:
+      - projectWebSite
+
+  backend:
+    depends_on:
+      - db
+    build: ./pastaImagemAppcontainer
+    ports: 
+      - "5000:5000"
+    volumes:
+      - "caminho do arquivo app \\pasta:/app"
+    restart: always
+    networks:
+      - projectWebSite
+
+networks:
+  projectWebSite:
