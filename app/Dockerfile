@@ -16,3 +16,11 @@ COPY . .
 EXPOSE 8080
 
 CMD ["python", "app.py"]
+
+# pip install Django==3.2.7
+
+# django-admin startproject project .
+
+# python manage.py startapp app
+
+#
