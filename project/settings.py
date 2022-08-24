@@ -73,19 +73,19 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sistema',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': '',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': 'SET default_storage_engine=InnoDB'
-        }
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'sistema',
+#        'HOST': 'localhost',
+#        'USER': 'root',
+#        'PASSWORD': '',
+#        'PORT': '3306',
+#        'OPTIONS': {
+#            'init_command': 'SET default_storage_engine=InnoDB'
+#        }
+#    }
+#}
 
 
 
@@ -130,3 +130,5 @@ STATICFILES_DIR = ('/static/')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

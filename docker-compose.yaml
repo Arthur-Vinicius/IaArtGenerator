@@ -16,12 +16,12 @@ services:
     #  - db
     build: ./app
     ports:
-      - "8080:8080"
+      - "8000:8080"
     restart: always
     networks:
       - projectumcompose
     volumes:
-      - "C:\\Users\\arthursouza\\Repositorios\\IaArtGenerator\\Docker\\app:/app"
+      - "C:\\Users\\arthursouza\\Repositorios\\IaArtGenerator\\Docker:/app"
 networks:
   projectumcompose:
     
