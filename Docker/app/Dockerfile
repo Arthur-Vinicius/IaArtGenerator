@@ -5,22 +5,19 @@ RUN apt-get update -y && \
 
 WORKDIR /app
 
-RUN pip install Flask requests flask_mysqldb && \
+RUN pip install Django requests django_mysqldb && \
   pip install --upgrade pip && \ 
   pip install chatterbot && \
   pip install spacy
 
-COPY . .
-
+COPY . ./app
 
 EXPOSE 8080
 
-CMD ["python", "app.py"]
+CMD ["python", "manage.py"]
 
 # pip install Django==3.2.7
 
 # django-admin startproject project .
 
 # python manage.py startapp app
-
-#

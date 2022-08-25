@@ -14,7 +14,7 @@ services:
   web:
     #depends_on:
     #  - db
-    build: ./app
+    build: ./Docker/app
     ports:
       - "8080:8080"
     restart: always
