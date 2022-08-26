@@ -1,7 +1,8 @@
+from os import name
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def home(request):
@@ -39,4 +40,15 @@ def dologin(request):
 
 def dashboard(request):
     return render(request, 'dashboard/home.html')
+
+def logouts(request):
+    logout(request)
+    return redirect('/painel/')
+
+def changePassword(request):
+    user = User.objects.get(email=request.user.email)
+    user.set_password('123')
+    user.save()
+    logout(request)
+    return redirect('/painel/')
 
