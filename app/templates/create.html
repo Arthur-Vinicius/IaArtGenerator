@@ -1,22 +1,46 @@
+<!-- Puxa o padrão da pagina que é o arquivo main.html. -->
 {% extends 'main.html' %}
 
+<!-- Inicia um bloco para a incerção de conteudos. -->
 {% block content %}
 
-    <form name="form-users" id="formUsers" method="post" action="/store/">
+
+    <!-- Cria o campo que o formulario de cadastro irá abranger -->
+    <form name="form-users" id="formUsers" action="/store/" method="post">
         <div class="col-6 mt-4 m-auto">
+            <h3 class="textcenter"> Cadastro de Usuário </h3>
+            
+            <!-- Bloco que irá conter instruções em python -->
             {% if msg %}
+                <!-- Alerta que indica que as senhas não são iguais -->
                 <div class="alert {{class}}">
+                    <!-- Mensagen salva na variavel dicionatio 'data.msg' em views.def.store -->
                     {{msg}}
                 </div>
+            
+            <!-- Fim do bloco -->
             {% endif %}
 
+        <!-- Esta parte ira conter inputs para a coleta de informações do usuário para que seja realizado o cadastro do mesmo no banco de dados. -->
+            
+            <!-- Função que cria um numero de Token aleatorio. -->
             {% csrf_token %}
-            <input class="form-control mt-4" type="text" name="name" id="name" placeholder="Nome:">
-            <input class="form-control mt-4" type="text" name="user" id="user" placeholder="Nome do Usuário:">
-            <input class="form-control mt-4" type="text" name="password" id="password" placeholder="Senha:">
-            <input class="form-control mt-4" type="text" name="password-conf" id="password-conf" placeholder="Repita a Senha:">
-            <input class="form-control mt-4" type="email" name="email" id="email" placeholder="Email:">
-            <input class="btn btn-primary mt-4" type="submit" value="Cadastrar">
+        
+            <!-- Coleta o nome-->
+            <input type="text" class="form-control mt-4" id="name" name="name" placeholder="Nome do Usuário">
+            <!-- Nome de usuario que o usuario deseja ultilizar -->
+            <input type="text" class="form-control mt-4" id="user" name="user" placeholder="Usuário">
+            <!-- Senha -->
+            <input type="password" class="form-control mt-4" id="password" name="password" placeholder="Senha">
+            <!-- Confirmação de Senha -->
+            <input type="password" class="form-control mt-4" id="password-conf" name="password-conf" placeholder="Confirme a senha">
+            <!-- Email -->
+            <input type="email" class="form-control mt-4" id="email" name="email" placeholder="Digite seu email">
+            <!-- Botão que envia as informações dos inputs -->
+            <input type="submit" class="btn btn-primary mt-4" value="Cadastrar">
+            
         </div>
+
     </form>
-{% endblock %}
+    
+{% endblock%}

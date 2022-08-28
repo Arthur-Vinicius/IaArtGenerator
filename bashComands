@@ -1,0 +1,15 @@
+# -- Cria Um Ambiente Isolado Do Resto Do Sistema
+    python -m venv venv
+# -- Acessa A Pasta E Ativa O Ambiente 
+    cd venv\Scripts\activate
+# -- Retornar ao diretorio raiz do projeto e instalar o django
+    pip install django
+    #mysql
+    pip install mysql
+# -- Cria a pasta core/project do sistema
+    django-admin startproject project .
+# -- Cria o app 
+    python manage.py startapp app
+# -- Migrar db
+    python manage.py migrate
+# -- 

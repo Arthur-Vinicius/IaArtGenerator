@@ -1,0 +1,16 @@
+<!-- Puxa o padrão da pagina que é o arquivo main.html. -->
+{% extends 'main.html' %}
+
+<!-- Inicia um bloco para a incerção de conteudos. -->
+{% block content %}
+    
+    <div class="centerDivG">
+
+        <!-- Cria um link para a pagina de login. -->
+        <a id="loginBn"  class="btn mt-3 mb-2" href="/telaLogin/">Faça Login</a>
+        <!-- Cria um link para a pagina de cadastro. -->
+        <br>
+        <a id="cadastroBn" class="btn mt-1 mb-3" href="/create/">Cadastre-se</a>
+    
+    </div>
+{% endblock%}
