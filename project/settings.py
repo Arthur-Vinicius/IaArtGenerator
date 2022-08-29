@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%b)7)5+ly&l&um^tb*8b(4=se4j*=r3r&q597-=c78d5vb98$o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0:8000","localhost","127.0.0.1"]
 
 
 # Application definition
@@ -81,9 +81,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'sistema',
         #para fazer a conceção entre containers deve ser especificado o ipadress do container db
-        'HOST':'localhost',
+        'HOST':'db',
         'USER':'root',
-        'PASSWORD':'',
+        'PASSWORD':'root',
         'PORT':'3306',
         'OPTIONS':{
             'init_command':'SET default_storage_engine=InnoDB',
