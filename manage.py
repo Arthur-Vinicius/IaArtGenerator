@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Arquivo do framework django que serve para dar comandos ou gerenciar o projeto inteiro. 
 """Django's command-line utility for administrative tasks."""
 import os
 import sys

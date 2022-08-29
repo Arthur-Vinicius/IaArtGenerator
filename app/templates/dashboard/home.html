@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <!-- Condição que faz a validação de login do usuário para a exebição do conteudo da pagina. -->
+    {% if request.user.is_authenticated %}
+        <h1>Área Restrita</h1>
+        Bem-vindo <br>
+        <a href="/logouts/">Sair</a>
+        <hr>
+
+        <!-- Condição que valida a aparição de determinadas funções se o usuário for ou não adm ou tiver permisão para ver a determinada função.  -->
+
+        <!-- permissão para edição de usuários. -->
+        {% if perms.admin.can_edit_users %}
+            <p>Você tem permissão de editar usuários</p>
+        {% endif %}
+
+        <!-- permissão para apagar posts -->
+        {% if perms.admin.can_delete_posts %}
+            <a href="#">Você tem permissão de deletar usuários</a>
+        {% endif %}
+    {% else %}
+        Você não tem acesso a essa área!
+    {% endif %}
+{% endblock %}

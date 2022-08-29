@@ -1,0 +1,35 @@
+<!-- Puxa o padrão da pagina que é o arquivo main.html. -->
+{% extends 'main.html' %}
+
+<!-- Inicia um bloco para a incerção de conteudos. -->
+{% block content %}
+
+    <!-- Cria um campo para o formulario de login -->
+    <form name="formPainel" id="formPainel" method="post" action="/dologin/">
+        <div class="col-6 mt-4 m-auto">
+            
+             <!-- Bloco que irá conter instruções em python -->
+            {% if msg %}
+            
+                <!-- Alerta que indica que as senhas não são iguais -->
+                <div class="alert {{class}}">
+                    <!-- Mensagen salva na variavel dicionatio 'data.msg' em views.def.store -->
+                    {{msg}}
+                </div>
+            
+            <!-- Fim do bloco de instruções python -->
+            {% endif %}
+
+            <!-- Esta parte ira conter inputs para a coleta de informações do usuário para que seja realizada a validação de credenciais do usuário para que o Login do usuário seja liberado para entrar no sistema -->
+            
+            <!-- Função que cria um numero de Token aleatorio. -->
+            {% csrf_token %}
+            
+            <!-- Inputs para coleta de credenciais para login -->
+            <input class="form-control mt-4" type="text" name="user" id="user" placeholder="Nome do Usuário:">
+            <input class="form-control mt-4" type="password" name="password" id="password" placeholder="Senha:">
+            <input class="btn btn-dark mt-4" type="submit" value="Entrar">
+        </div>
+    </form>
+</form>
+{% endblock %}
