@@ -81,9 +81,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'sistema',
         #para fazer a conceção entre containers deve ser especificado o ipadress do container db
-        'HOST':'db',
+        'HOST':'localhost',
         'USER':'root',
-        'PASSWORD':'root',
+        'PASSWORD':'',
         'PORT':'3306',
         'OPTIONS':{
             'init_command':'SET default_storage_engine=InnoDB',
