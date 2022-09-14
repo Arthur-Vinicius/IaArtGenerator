@@ -4,23 +4,71 @@
 
     <!-- Condição que faz a validação de login do usuário para a exebição do conteudo da pagina. -->
     {% if request.user.is_authenticated %}
-        <h1>Área Restrita</h1>
-        Bem-vindo <br>
-        <a href="/logouts/">Sair</a>
+        {% if perms.admin.can_delete_posts  %}
+            <h2>Você está logado como root!</h2>
+        {% else %}
+            <h2>Bem Vindo!</h2>
+        {% endif %}
         <hr>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eaque quibusdam provident veritatis et! Excepturi ipsa recusandae sit corporis at, quos inventore iusto aperiam animi, labore totam suscipit commodi iste.</p>
+
+        {% if perms.admin.can_delete_posts  %}
+            <h2>Você está logado como root!</h2>
+        {% else %}
+        <div class="container px-4 py-5" id="custom-cards">
+            <h2 class="pb-2 border-bottom">Custom cards</h2>
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+                <div class="col">
+                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('');">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">ChatBot Bob</h2>
+                            <ul class="d-flex list-unstyled mt-auto">
+                                <li class="d-flex align-items-center me-3">
+                                    <a href="http://"><small>Abrir</small></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('');">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">IA Artistica</h2>
+                            <ul class="d-flex list-unstyled mt-auto">
+                                <li class="d-flex align-items-center me-3">
+                                    <a href="http://"><small>Abrir</small></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('');">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">IA texto</h2>
+                            <ul class="d-flex list-unstyled mt-auto">
+                                <li class="d-flex align-items-center me-3">
+                                    <a href="http://"><small>Abrir</small></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+
 
         <!-- Condição que valida a aparição de determinadas funções se o usuário for ou não adm ou tiver permisão para ver a determinada função.  -->
 
         <!-- permissão para edição de usuários. -->
-        {% if perms.admin.can_edit_users %}
-            <p>Você tem permissão de editar usuários</p>
-        {% endif %}
+        
 
         <!-- permissão para apagar posts -->
-        {% if perms.admin.can_delete_posts %}
-            <a href="#">Você tem permissão de deletar usuários</a>
-        {% endif %}
+        
     {% else %}
         Você não tem acesso a essa área!
     {% endif %}
+    
 {% endblock %}

@@ -9,9 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-# Importa a função Path da lib pathlib
-from pathlib import Path
 
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%b)7)5+ly&l&um^tb*8b(4=se4j*=r3r&q597-=c78d5vb98$o'
+SECRET_KEY = 'django-insecure-fup=mp#n!0gdkc))ys&r3ab2c^y@zd1rtmq(!yd!#n3j&k)imy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0:8000","localhost","127.0.0.1"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -75,16 +74,14 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# Configurações do banco de dados para que o django ache e se conecte.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'sistema',
-        #para fazer a conceção entre containers deve ser especificado o ipadress do container db
-        'HOST':'localhost',
-        'USER':'root',
-        'PASSWORD':'',
-        'PORT':'3306',
+        'NAME': 'sistema',
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': '',
+        'PORT': '3306',
         'OPTIONS':{
             'init_command':'SET default_storage_engine=InnoDB',
         }
@@ -136,4 +133,3 @@ STATICFILES_DIR = ('/static/')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-

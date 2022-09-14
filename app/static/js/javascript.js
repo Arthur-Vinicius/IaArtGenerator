@@ -1,6 +1,4 @@
-/* Função de pop-up ou alerta que exibirá uma mensagem. */
-(function (win,doc){
-    "use strict";
-
-    alert('Olá');
-})(window,document)
+function darkMode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+}
