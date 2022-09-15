@@ -1,0 +1,49 @@
+{% extends '../main.html' %}
+
+{% block content %}
+    
+{% if perms.admin.can_delete_posts  %}
+
+<h1>My Chatbot </h1>
+    <div>
+        <div id="chatbot">
+            <p class="botText"><span>Hi, there!</span></p>
+
+        </div>
+        <div id="userInput">
+            <input type="text" id="textInput" name="userMessage" placeholder="Type your message">
+            <input type="button" id="buttonInput" type="submit" value="Send">
+        </div>
+    </div>
+    <script>
+        function getUserResponse(){
+            var userText = $('#textInput').val();
+            var userHTML = "<p class='userText'>User: <span>"+userText+"</span>";
+            $('#textInput').val("");
+
+            $('#chatbot').append(userHTML);
+
+            $.get('/app/getResponse/',{userMessage:userText}).done(function(data){
+                var returnedMessage = "<p class='botText'>Chatbot: <span>"+ data + "</span></p>";
+                $('#chatbot').append(returnedMessage);
+            })
+
+        }
+
+        $('#buttonInput').click(function(){
+            getUserResponse();
+        })
+    </script>
+    
+
+{% else %}
+    
+<div class="row justify-content-center align-items-center vh-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5 col-xxl-5">
+        <h1 >EM BREVE!</h1>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock%}

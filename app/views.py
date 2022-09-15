@@ -3,6 +3,13 @@ from os import name
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.csrf import csrf_exempt
+
+from django.http import HttpResponse
+
+from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
+
 
 # Create your views here.
 
@@ -75,4 +82,45 @@ def changePassword(request):
     logout(request)
     return redirect('/painel/')
 
+def chatterbot(request):
+    return render(request,'dashboard/chatterbot.html')
 
+def iaartistica(request):
+    return render(request,'dashboard/iaartistica.html')
+
+def iaescritora(request):
+    return render(request,'dashboard/iaescritora.html')
+
+
+
+
+bot = ChatBot('tinbot', read_only = False, logic_adapters=[{
+        'import_path':'chatterbot.logic.BestMatch',
+        # 'default_response': 'Sorry, I am not sure what that means',
+        # 'maximum_similarity_threshold':0.90
+    }])
+
+#training_list = [
+#     "hi",
+#     "hi, there",
+#     "what's your name",
+#     "I'm just a chatbot",
+#     "what is your favourite food",
+#     "I like pizza",
+##     "what's your favourite sport",
+#     "volleyball",
+#     "do you have children",
+#     "no"
+#]
+
+#chatterbotCorpusTrainer = ChatterBotCorpusTrainer(bot)
+#chatterbotCorpusTrainer.train('chatterbot.corpus.english')
+
+#list_trainer = ListTrainer(bot)
+#list_trainer.train(training_list)
+
+
+def getResponse(request):
+    userMessage = request.GET.get('userMessage')
+    chatResponse = str(bot.get_response(userMessage))
+    return HttpResponse(chatResponse)

@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from ast import Store
+from app import views
 from django.contrib import admin
 from django.urls import path
-from app.views import index, create, store, telaLogin, dologin, dashboard, logouts, changePassword
+from app.views import iaescritora, index, create, store, telaLogin, dologin, dashboard, logouts, changePassword, chatterbot , iaescritora, iaartistica
+
 
 # Define as rotas e funções que serão chamadas
 urlpatterns = [
@@ -28,5 +30,9 @@ urlpatterns = [
     path('dologin/', dologin),
     path('dashboard/', dashboard),
     path('logouts/', logouts),
-    path('resetPassword/', changePassword)
+    path('resetPassword/', changePassword),
+    path('chatterbot/', chatterbot),
+    path('iaartistica/', iaartistica),
+    path('iaescritora/', iaescritora),
+    path('getResponse/', views.getResponse)
 ]

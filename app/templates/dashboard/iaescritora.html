@@ -1,0 +1,17 @@
+{% extends '../main.html' %}
+
+{% block content %}
+
+{% if perms.admin.can_delete_posts  %}
+
+
+{% else %}
+<div class="row justify-content-center align-items-center vh-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5 col-xxl-5">
+        <h1>EM BREVE!</h1>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock%}
