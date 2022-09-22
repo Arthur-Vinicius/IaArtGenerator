@@ -1,0 +1,10 @@
+*.pyc
+venv
+env
+.venv
+.env
+__pycache__/
+local_settings.py
+staticfiles
+mysqlclient-1.4.6-cp37-cp37m-win_amd64 copy.whl
+db*
